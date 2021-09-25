@@ -8,6 +8,7 @@ public class PlayerData : MonoBehaviour
 {
     public static PlayerData Instance;
     public string playerName;
+    public int highScore;
 
     public void Awake()
     {
@@ -23,22 +24,25 @@ public class PlayerData : MonoBehaviour
 
 
 
-    /*    [System.SerializableAttribute]
+   [System.SerializableAttribute]
         class SaveData
         {
             public string playerName;
+            public int highScore;
         }
 
-        public void SaveName() 
+        public void SavePlayerData() 
         {
             SaveData data = new SaveData();
             data.playerName = playerName;
+            data.highScore = highScore;
             string Json = JsonUtility.ToJson(data);
             File.WriteAllText(Application.persistentDataPath + "/savefile.json",Json);
 
         }
 
-        public void LoadName()
+      
+        public void LoadPlayerData()
          { 
          string path = Application.persistentDataPath + "/savefile.json";
              if (File.Exists(path)) 
@@ -48,5 +52,5 @@ public class PlayerData : MonoBehaviour
                  playerName = data.playerName;
 
              }
-         }*/
+         }
 }

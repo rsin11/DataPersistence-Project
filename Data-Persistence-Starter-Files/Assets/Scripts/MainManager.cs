@@ -43,7 +43,7 @@ public class MainManager : MonoBehaviour
         }
 
         bestPlayerName = PlayerData.Instance.playerName;
-        bestNameDisplay.GetComponent<Text>().text = "Best Score " + ": " + bestPlayerName + ": " + m_Points;
+       
     }
 
     private void Update()
@@ -74,18 +74,21 @@ public class MainManager : MonoBehaviour
     {
         m_Points += point;
         ScoreText.text = $"Score : {m_Points}";
-        
+       
     }
 
     public void GameOver()
     {
         m_GameOver = true;
         GameOverText.SetActive(true);
+        DisplayName();
+    
     }
 
-    public void NewNameSelected(string name) 
+    public void DisplayName() 
     {
-        PlayerData.Instance.playerName = name;
+        bestNameDisplay.GetComponent<Text>().text = "Best Score " + ": " + bestPlayerName + ": " + m_Points;
+       
     }
-    
+
 }
